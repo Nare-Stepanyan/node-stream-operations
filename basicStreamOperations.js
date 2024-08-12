@@ -41,9 +41,6 @@ const readAndWriteStreamWithPipes = () => {
   const text = fs.createReadStream(fileReadPath);
   const file = fs.createWriteStream(fileWritePath);
   text.pipe(file);
-  text.on("end", () => {
-    file.end();
-  });
   text.on("error", (err) => {
     console.log(`Error occurred while reading:, ${err}`);
   });

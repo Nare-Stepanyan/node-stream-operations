@@ -29,6 +29,7 @@ const addTimestampWithTransformStream = () => {
   const writeStream = fs.createWriteStream(fileWritePath);
 
   const transformData = new Transform({
+    objectMode: true,
     transform(chunk, encoding, callback) {
       let jsonData;
       try {
